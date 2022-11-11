@@ -13,7 +13,6 @@ class MainView(fragment: FragmentActivity) : FrameLayout(fragment) {
 
     // UI
     private val fragmentContainerView: FragmentContainerView
-
     private val navHostFragment = NavHostFragment.create(R.navigation.navigation_main)
 
     init {
@@ -27,6 +26,11 @@ class MainView(fragment: FragmentActivity) : FrameLayout(fragment) {
             .setPrimaryNavigationFragment(navHostFragment)
             .commit()
     }
+
+
+    //****************************************
+    //              View Creations           *
+    //****************************************
 
     private fun createFragmentContainerView() = FragmentContainerView(context).apply {
         id = View.generateViewId()
