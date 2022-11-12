@@ -1,17 +1,13 @@
 package com.fahimezv.githubrepositorylist.presentation.ui.home
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.fahimezv.githubrepositorylist.presentation.architecture.BaseFragment
 
-class HomeFragment:Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return View(requireContext()).apply {
-            setBackgroundColor(Color.YELLOW)
-        }
+class HomeFragment : BaseFragment<HomeView>() {
 
+    override fun onCreateRootView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): HomeView {
+        return HomeView(requireContext())
     }
 }
