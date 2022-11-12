@@ -8,7 +8,7 @@ object ColorProvider {
 
     const val white="#FFFFFF"
 
-    val black="#00000"
+    const val black="#00000"
 
-    val tint="#FE9920"
+    const  val tint="#FE9920"
 }
