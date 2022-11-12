@@ -6,4 +6,7 @@ object DpProvider {
 
     val buttonHeight=50.dpToPx
 
+    val padding=10.dpToPx
+
+    val halfPadding= padding/2
 }
