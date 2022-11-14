@@ -1,6 +1,5 @@
 package com.fahimezv.githubrepositorylist.presentation.ui
 
-import android.graphics.Color
 import android.view.View
 import android.widget.FrameLayout
 import androidx.fragment.app.FragmentActivity
@@ -34,7 +33,6 @@ class MainView(fragment: FragmentActivity) : FrameLayout(fragment) {
 
     private fun createFragmentContainerView() = FragmentContainerView(context).apply {
         id = View.generateViewId()
-        setBackgroundColor(Color.GREEN)
     }
 }
 
