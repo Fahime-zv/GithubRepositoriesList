@@ -1,7 +1,6 @@
 
 package com.fahimezv.githubrepositorylist.data.network.generator
 
-import com.fahimezv.githubrepositorylist.data.network.generator.model.NetworkEnvironment
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
@@ -17,8 +16,8 @@ abstract class NetworkServiceFactory(
     // General Interceptors (Which doesn't dependent on services)
     abstract fun interceptors(): List<NetworkInterceptor>
 
-    // Interceptors which needs a service
-    abstract fun serviceDependentInterceptors(): List<NetworkInterceptor>
+//    // Interceptors which needs a service
+//    abstract fun serviceDependentInterceptors(): List<NetworkInterceptor>
 
     fun getHttpClientBuilder(): OkHttpClient.Builder {
         val builder = OkHttpClient.Builder()
@@ -54,11 +53,7 @@ abstract class NetworkServiceFactory(
 
     fun <T> create(serviceType: Class<T>): T {
         val okHttpClientBuilder = getHttpClientBuilder()
-        /* We add this interceptors in create() function because they need a default okHttpClientBuilder
-        * and if we added them in getHttpClientBuilder() function a StackOverflow Exception will be thrown */
-        serviceDependentInterceptors().forEach { interceptor ->
-            okHttpClientBuilder.addInterceptor(interceptor)
-        }
+        /* We add this interceptors in create() function because they need a default okHttpClientBuilder*/
         val retrofit = getRetrofitBuilder(
             okHttpClientBuilder.build(),
             converterFactory,
