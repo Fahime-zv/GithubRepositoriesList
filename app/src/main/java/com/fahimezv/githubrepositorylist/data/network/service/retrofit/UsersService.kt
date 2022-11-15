@@ -7,6 +7,6 @@ import retrofit2.http.Path
 interface UsersService {
     @GET("users/{username}/repo")
     suspend fun repos(
-        @Path("username") userName: String
-    ):RepoDAO
+        @Path("username") userName: String,
+    ): RepoDAO
 }
