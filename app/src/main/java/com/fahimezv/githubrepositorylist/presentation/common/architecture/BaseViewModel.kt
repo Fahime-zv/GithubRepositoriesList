@@ -1,4 +1,4 @@
-package com.fahimezv.githubrepositorylist.presentation.architecture
+package com.fahimezv.githubrepositorylist.presentation.common.architecture
 
 import android.os.Parcelable
 import androidx.lifecycle.LiveData

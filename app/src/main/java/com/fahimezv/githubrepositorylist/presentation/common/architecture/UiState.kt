@@ -1,5 +1,5 @@
 
-package com.fahimezv.githubrepositorylist.presentation.architecture
+package com.fahimezv.githubrepositorylist.presentation.common.architecture
 
 sealed class UiState {
     object Loading : UiState()

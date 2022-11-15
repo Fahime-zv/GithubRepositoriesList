@@ -1,5 +1,5 @@
 
-package com.fahimezv.githubrepositorylist.presentation.animation
+package com.fahimezv.githubrepositorylist.presentation.common.animation
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator

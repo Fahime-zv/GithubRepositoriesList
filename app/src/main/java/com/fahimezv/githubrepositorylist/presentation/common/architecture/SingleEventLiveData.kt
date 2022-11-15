@@ -1,5 +1,5 @@
 
-package com.fahimezv.githubrepositorylist.presentation.architecture
+package com.fahimezv.githubrepositorylist.presentation.common.architecture
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner
