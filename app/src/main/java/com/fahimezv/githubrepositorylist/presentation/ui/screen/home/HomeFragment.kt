@@ -1,4 +1,4 @@
-package com.fahimezv.githubrepositorylist.presentation.ui.home
+package com.fahimezv.githubrepositorylist.presentation.ui.screen.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

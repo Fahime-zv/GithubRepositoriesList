@@ -1,4 +1,4 @@
-package com.fahimezv.githubrepositorylist.presentation.ui.home
+package com.fahimezv.githubrepositorylist.presentation.ui.screen.home
 
 import android.content.Context
 import android.widget.LinearLayout
