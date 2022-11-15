@@ -1,6 +1,8 @@
 package com.fahimezv.githubrepositorylist.data
 
 import com.fahimezv.githubrepositorylist.data.network.generator.*
+import com.fahimezv.githubrepositorylist.data.network.service.ServiceProvider
+import com.fahimezv.githubrepositorylist.data.network.service.ServiceProviderImpl
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
 import org.koin.dsl.module
@@ -40,6 +42,13 @@ val dataModule = module {
             networkHeadersGenerator = get()
         )
         networkServiceFactory
+    }
+
+    factory {
+        val serviceProvider: ServiceProvider = ServiceProviderImpl(
+            serviceFactory = get()
+        )
+        serviceProvider
     }
 
     factory {
