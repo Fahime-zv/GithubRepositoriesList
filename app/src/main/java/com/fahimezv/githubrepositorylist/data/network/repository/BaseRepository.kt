@@ -12,10 +12,10 @@ abstract class BaseRepository {
         // Calling the apiCall method that passed as a higher order function
         val result = try {
             val response = apiCall.invoke()
-            Log.i(TAG, "safeApiCall: $response")
+            println( "safeApiCall: $response")
             Result.Data(response.map())
         } catch (e: Throwable) { // If response code is not 200 then an exception will be thrown
-            Log.e(TAG, "${e.message}")
+           println( "${e.message}")
             Result.NetworkError(e)
         }
         return result
