@@ -1,6 +1,7 @@
 package com.fahimezv.githubrepositorylist.data
 
 import com.fahimezv.githubrepositorylist.data.network.generator.*
+import com.fahimezv.githubrepositorylist.data.network.repository.UsersRepository
 import com.fahimezv.githubrepositorylist.data.network.service.ServiceProvider
 import com.fahimezv.githubrepositorylist.data.network.service.ServiceProviderImpl
 import okhttp3.logging.HttpLoggingInterceptor
@@ -54,5 +55,11 @@ val dataModule = module {
     factory {
         NetworkEnvironmentImpl()
     }
+
+    // ------------- Repositories -------------
+    factory {
+        UsersRepository( service =get<ServiceProvider>().getUsersService())
+    }
+
 
 }
