@@ -1,11 +1,12 @@
 package com.fahimezv.githubrepositorylist.data.network.model.dao
 
 import com.fahimezv.githubrepositorylist.core.entity.Repo
+import com.google.gson.annotations.SerializedName
 
 data class RepoDAO(
-    val name: String,
-    val url: String,
-    val owner: OwnerDAO,
+   @SerializedName("name")val name: String,
+   @SerializedName("url")val url: String,
+   @SerializedName("owner")val owner: OwnerDAO,
 ) : MappableDAO<Repo> {
 
     override fun map(): Repo {
@@ -13,8 +14,8 @@ data class RepoDAO(
     }
 
     data class OwnerDAO(
-        val login: String,
-        val url: String,
+        @SerializedName("login")val login: String,
+        @SerializedName("url") val url: String,
     ) : MappableDAO<Repo.Owner> {
 
         override fun map(): Repo.Owner {
