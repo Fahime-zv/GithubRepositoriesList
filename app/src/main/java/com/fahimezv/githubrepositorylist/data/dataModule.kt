@@ -1,11 +1,11 @@
 package com.fahimezv.githubrepositorylist.data
 
 import com.fahimezv.githubrepositorylist.data.network.generator.*
+import com.fahimezv.githubrepositorylist.data.network.repository.RepoRepository
 import com.fahimezv.githubrepositorylist.data.network.repository.UsersRepository
 import com.fahimezv.githubrepositorylist.data.network.service.ServiceProvider
 import com.fahimezv.githubrepositorylist.data.network.service.ServiceProviderImpl
 import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
 import org.koin.dsl.module
@@ -66,7 +66,10 @@ val dataModule = module {
 
     // ------------- Repositories -------------
     factory {
-        UsersRepository( service =get<ServiceProvider>().getUsersService())
+        UsersRepository(service = get<ServiceProvider>().getUsersService())
+    }
+    factory {
+        RepoRepository(service = get<ServiceProvider>().getReposService())
     }
 
 
