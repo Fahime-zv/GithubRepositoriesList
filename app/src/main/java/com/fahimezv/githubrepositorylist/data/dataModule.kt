@@ -4,9 +4,13 @@ import com.fahimezv.githubrepositorylist.data.network.generator.*
 import com.fahimezv.githubrepositorylist.data.network.repository.UsersRepository
 import com.fahimezv.githubrepositorylist.data.network.service.ServiceProvider
 import com.fahimezv.githubrepositorylist.data.network.service.ServiceProviderImpl
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
 import org.koin.dsl.module
+import retrofit2.Converter
+import retrofit2.converter.gson.GsonConverterFactory
 
 val dataModule = module {
     //***************************************
@@ -14,7 +18,11 @@ val dataModule = module {
     //***************************************
 
     // ------------- Generators -------------
-
+    single {
+        val gsonBuilder: GsonBuilder = get() // Defined in coreModule.kt
+        val converterFactory: Converter.Factory = GsonConverterFactory.create(gsonBuilder.create())
+        converterFactory
+    }
     factory {
         if (BuildConfig.DEBUG) {    // development build
             HttpLoggingInterceptor.Level.BODY
