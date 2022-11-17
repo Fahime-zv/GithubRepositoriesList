@@ -4,13 +4,14 @@ import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.google.gson.annotations.SerializedName
 
 data class RepoDAO(
+   @SerializedName("id")val id: Int,
    @SerializedName("name")val name: String,
    @SerializedName("url")val url: String,
    @SerializedName("owner")val owner: OwnerDAO,
-) : MappableDAO<Repo> {
+) : MappableListDAO<List<Repo>> {
 
-    override fun map(): Repo {
-        return Repo(name = name, url = url, owner = owner.map())
+    override fun map(): List<Repo> {
+        return listOf( Repo(id=id,name = name, url = url, owner = owner.map()))
     }
 
     data class OwnerDAO(
