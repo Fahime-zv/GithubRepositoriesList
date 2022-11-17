@@ -30,5 +30,8 @@
         <argument
             android:name="repoModel"
             app:argType="com.fahimezv.githubrepositorylist.data.network.model.dao.RepoDAO" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
     </fragment>
 </navigation>
