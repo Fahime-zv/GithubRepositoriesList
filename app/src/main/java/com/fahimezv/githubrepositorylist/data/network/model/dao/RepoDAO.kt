@@ -8,10 +8,10 @@ data class RepoDAO(
    @SerializedName("name")val name: String,
    @SerializedName("url")val url: String,
    @SerializedName("owner")val owner: OwnerDAO,
-) : MappableListDAO<List<Repo>> {
+) : MappableDAO<Repo> {
 
-    override fun map(): List<Repo> {
-        return listOf( Repo(id=id,name = name, url = url, owner = owner.map()))
+    override fun map(): Repo {
+        return Repo(id=id,name = name, url = url, owner = owner.map())
     }
 
     data class OwnerDAO(
