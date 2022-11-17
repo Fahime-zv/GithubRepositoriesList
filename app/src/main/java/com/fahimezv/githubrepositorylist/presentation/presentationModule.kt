@@ -11,6 +11,6 @@ val presentationModule = module {
         ListViewModel(parameters[0], usersRepository = get())
     }
     viewModel { parameters ->
-        DetailViewModel(parameters[0])
+        DetailViewModel(parameters[0],parameters[1], repoRepository = get())
     }
 }

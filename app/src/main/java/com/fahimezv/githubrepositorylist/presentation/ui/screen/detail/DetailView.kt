@@ -64,23 +64,18 @@ class DetailView(
     //                UiState                *
     //****************************************
     override fun onLoading() {
-        TODO("Not yet implemented")
     }
 
     override fun onEmpty() {
-        TODO("Not yet implemented")
     }
 
     override fun onData() {
-        TODO("Not yet implemented")
     }
 
     override fun onNetworkError() {
-        TODO("Not yet implemented")
     }
 
     override fun onApiError(msg: String) {
-        TODO("Not yet implemented")
     }
 
     //****************************************

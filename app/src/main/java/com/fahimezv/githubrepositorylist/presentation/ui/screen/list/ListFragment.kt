@@ -28,7 +28,7 @@ class ListFragment : BaseFragmentVMState<ListView, ListViewModel>() {
         return ListView(
             context = requireContext(),
             onRepositoryClickListener = { repoModel ->
-                navigate(ListFragmentDirections.actionListFragmentToDetailFragment(repoModel))
+                navigate(ListFragmentDirections.actionListFragmentToDetailFragment(repoModel,args.userName))
             }
         )
     }
