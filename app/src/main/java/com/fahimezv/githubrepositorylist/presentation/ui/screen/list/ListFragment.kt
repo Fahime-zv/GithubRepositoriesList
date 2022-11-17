@@ -25,10 +25,12 @@ class ListFragment : BaseFragmentVMState<ListView, ListViewModel>() {
     private val args: ListFragmentArgs by navArgs()
 
     override fun onCreateRootView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): ListView {
-        return ListView(context=requireContext(),
-        onRepositoryClickListener = {
-            //ToDO
-        })
+        return ListView(
+            context = requireContext(),
+            onRepositoryClickListener = { repoModel ->
+                navigate(ListFragmentDirections.actionListFragmentToDetailFragment(repoModel))
+            }
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,7 +68,6 @@ class ListFragment : BaseFragmentVMState<ListView, ListViewModel>() {
             }
         }
     }
-
 }
 
 
