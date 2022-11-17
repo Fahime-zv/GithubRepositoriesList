@@ -19,5 +19,16 @@
         <argument
             android:name="userName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.fahimezv.githubrepositorylist.presentation.ui.screen.detail.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="repoModel"
+            app:argType="com.fahimezv.githubrepositorylist.data.network.model.dao.RepoDAO" />
     </fragment>
 </navigation>
