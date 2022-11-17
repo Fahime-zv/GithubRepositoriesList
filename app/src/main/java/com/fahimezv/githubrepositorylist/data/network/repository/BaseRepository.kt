@@ -12,7 +12,7 @@ abstract class BaseRepository {
             val response = apiCall.invoke()
             Result.Data(response)
         } catch (e: Throwable) { // If response code is not 200 then an exception will be thrown
-            Log.e(TAG, "${e.message}")
+//            Log.e(TAG, "${e.message}")
             Result.NetworkError(e)
         }
         return result
