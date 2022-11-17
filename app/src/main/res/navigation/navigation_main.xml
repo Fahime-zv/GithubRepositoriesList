@@ -6,6 +6,18 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.fahimezv.githubrepositorylist.presentation.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:name="com.fahimezv.githubrepositorylist.presentation.ui.screen.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.fahimezv.githubrepositorylist.presentation.ui.screen.list.ListFragment"
+        android:label="ListFragment" >
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
 </navigation>
