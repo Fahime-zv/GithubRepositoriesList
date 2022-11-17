@@ -9,12 +9,12 @@ import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import com.fahimezv.githubrepositorylist.presentation.extentions.setTextColor
 import com.fahimezv.githubrepositorylist.presentation.provider.ColorProvider
-import com.fahimezv.githubrepositorylist.presentation.animation.BounceClickEffectAnimator
+import com.fahimezv.githubrepositorylist.presentation.common.animation.BounceClickEffectAnimator
 import com.fahimezv.githubrepositorylist.presentation.extentions.setBackgroundColor
 import com.fahimezv.githubrepositorylist.presentation.provider.DpProvider
 
 @SuppressLint("ViewConstructor")
-abstract class CustomeButton(context: Context) : AppCompatTextView(context) {
+abstract class CustomButton(context: Context) : AppCompatTextView(context) {
 
     // Animation
     private val bounceClickEffectAnimator by lazy { BounceClickEffectAnimator(this) }
@@ -39,7 +39,7 @@ abstract class CustomeButton(context: Context) : AppCompatTextView(context) {
         return super.onTouchEvent(event)
     }
 
-    open class Solid(context: Context) : CustomeButton(context) {
+    open class Solid(context: Context) : CustomButton(context) {
         init {
             setTextColor(ColorProvider.white)
             setBackgroundColor(ColorProvider.tint)
