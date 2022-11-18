@@ -2,13 +2,13 @@ package com.fahimezv.githubrepositorylist.presentation.ui.screen.list.sub
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import com.fahimezv.githubrepositorylist.data.network.model.dao.RepoDAO
+import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.presentation.OnRepositoryClickListener
 import com.fahimezv.githubrepositorylist.presentation.common.recycler.BasePagingAdapter
 
 class RepositoryAdapter(
-    private val onRepositoryClickListener: OnRepositoryClickListener)
-    : BasePagingAdapter<RepoCellView, RepoDAO>(RepoComparator) {
+    private val onRepositoryClickListener: OnRepositoryClickListener,
+) : BasePagingAdapter<RepoCellView, Repo>(RepoComparator) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -35,12 +35,12 @@ class RepositoryAdapter(
     }
 
 
-    object RepoComparator : DiffUtil.ItemCallback<RepoDAO>() {
-        override fun areItemsTheSame(oldItem: RepoDAO, newItem: RepoDAO): Boolean {
+    object RepoComparator : DiffUtil.ItemCallback<Repo>() {
+        override fun areItemsTheSame(oldItem: Repo, newItem: Repo): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: RepoDAO, newItem: RepoDAO): Boolean {
+        override fun areContentsTheSame(oldItem: Repo, newItem: Repo): Boolean {
             return oldItem == newItem
         }
     }

@@ -5,8 +5,7 @@ import android.graphics.Color
 import android.text.TextUtils
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.fahimezv.githubrepositorylist.data.network.model.dao.RepoDAO
-import com.fahimezv.githubrepositorylist.presentation.OnRepositoryClickListener
+import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.presentation.extentions.dpToPx
 import com.fahimezv.githubrepositorylist.presentation.util.LayoutSet
 
@@ -50,7 +49,7 @@ class RepoCellView(
     //              Public Function          *
     //****************************************
 
-    fun bind(repo: RepoDAO) {
+    fun bind(repo: Repo) {
         nameTextView.text = repo.name
         urlTextView.text = repo.url
     }

@@ -12,8 +12,7 @@ import com.fahimezv.githubrepositorylist.presentation.ui.screen.list.paging.Repo
 class ListViewModel(
     private val userNam: String,
     private val usersRepository: UsersRepository,
-) :
-    BaseViewModelState() {
+) : BaseViewModelState() {
 
 
     private lateinit var pagingSource: RepositoryPagingSource

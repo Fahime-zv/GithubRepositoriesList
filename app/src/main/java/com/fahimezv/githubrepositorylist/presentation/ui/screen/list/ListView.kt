@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.fahimezv.githubrepositorylist.data.network.model.dao.RepoDAO
+import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.presentation.OnRepositoryClickListener
 import com.fahimezv.githubrepositorylist.presentation.common.architecture.ViewState
 import com.fahimezv.githubrepositorylist.presentation.extentions.dpToPx
@@ -110,7 +110,7 @@ class ListView(
     //****************************************
     //              Public Function          *
     //****************************************
-    suspend fun bind(pagingData: PagingData<RepoDAO>) {
+    suspend fun bind(pagingData: PagingData<Repo>) {
         repositoryAdapter.submitData(pagingData)
 
     }

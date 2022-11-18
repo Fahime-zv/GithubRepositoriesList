@@ -29,7 +29,7 @@
         android:label="DetailFragment" >
         <argument
             android:name="repoModel"
-            app:argType="com.fahimezv.githubrepositorylist.data.network.model.dao.RepoDAO" />
+            app:argType="com.fahimezv.githubrepositorylist.core.entity.Repo" />
         <argument
             android:name="userName"
             app:argType="string" />

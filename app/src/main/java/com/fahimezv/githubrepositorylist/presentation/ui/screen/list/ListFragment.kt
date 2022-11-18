@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
+import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.presentation.common.architecture.BaseFragmentVMState
 import com.fahimezv.githubrepositorylist.presentation.common.paging.PagingExceptions
 import com.fahimezv.githubrepositorylist.presentation.extentions.TAG
@@ -27,8 +28,8 @@ class ListFragment : BaseFragmentVMState<ListView, ListViewModel>() {
     override fun onCreateRootView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): ListView {
         return ListView(
             context = requireContext(),
-            onRepositoryClickListener = { repoModel ->
-                navigate(ListFragmentDirections.actionListFragmentToDetailFragment(repoModel,args.userName))
+            onRepositoryClickListener = { repo: Repo ->
+                navigate(ListFragmentDirections.actionListFragmentToDetailFragment(repo,args.userName))
             }
         )
     }

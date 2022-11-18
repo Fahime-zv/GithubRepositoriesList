@@ -4,7 +4,7 @@ import android.content.Context
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.fahimezv.githubrepositorylist.data.network.model.dao.RepoDAO
+import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.presentation.common.architecture.ViewState
 import com.fahimezv.githubrepositorylist.presentation.provider.DpProvider
 import com.fahimezv.githubrepositorylist.presentation.util.LayoutSet
@@ -12,7 +12,7 @@ import com.fahimezv.githubrepositorylist.presentation.util.margin
 
 class DetailView(
     context: Context,
-    private val repoDAO: RepoDAO,
+    private val repo: Repo,
 ) : FrameLayout(context), ViewState {
 
     //UI
@@ -83,15 +83,15 @@ class DetailView(
     //****************************************
 
     private fun createOwnerLoginTextView()=TextView(context).apply {
-        text=repoDAO.owner.login
+        text = repo.owner.login
     }
     private fun createOwnerUrlTextView()=TextView(context).apply {
-        text=repoDAO.owner.url
+        text = repo.owner.url
     }
     private fun createRepoNameTextView()=TextView(context).apply {
-        text=repoDAO.name
+        text = repo.name
     }
     private fun createRepoUrlTextView()=TextView(context).apply {
-        text=repoDAO.url
+        text = repo.url
     }
 }
