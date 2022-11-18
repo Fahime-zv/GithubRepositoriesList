@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.presentation.OnRepositoryClickListener
 import com.fahimezv.githubrepositorylist.presentation.common.recycler.BasePagingAdapter
+import com.fahimezv.githubrepositorylist.presentation.util.LayoutSet
 
 class RepositoryAdapter(
     private val onRepositoryClickListener: OnRepositoryClickListener,
@@ -16,7 +17,9 @@ class RepositoryAdapter(
     ): BaseViewHolder<RepoCellView> {
         val cellView = RepoCellView(
             parent.context
-        )
+        ).apply {
+            layoutParams = LayoutSet.Recycler.defaultParams()
+        }
         return BaseViewHolder(cellView)
     }
 

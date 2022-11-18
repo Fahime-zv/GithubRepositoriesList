@@ -11,6 +11,8 @@ import android.widget.TextView
 import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.presentation.common.animation.BounceClickEffectAnimator
 import com.fahimezv.githubrepositorylist.presentation.extentions.dpToPx
+import com.fahimezv.githubrepositorylist.presentation.extentions.setTextColor
+import com.fahimezv.githubrepositorylist.presentation.provider.ColorProvider
 import com.fahimezv.githubrepositorylist.presentation.provider.DpProvider
 import com.fahimezv.githubrepositorylist.presentation.provider.StringProvider
 import com.fahimezv.githubrepositorylist.presentation.util.LayoutSet
@@ -58,14 +60,14 @@ class RepoCellView(
 
     private fun createNameTextView() = TextView(context).apply {
         textSize = 6.dpToPx.toFloat()
-        setTextColor(Color.BLACK)
+        setTextColor(ColorProvider.black)
         setTypeface(null, Typeface.BOLD_ITALIC)
     }
 
     private fun createUrlTextView() = TextView(context).apply {
         textSize = 5.dpToPx.toFloat()
         ellipsize = TextUtils.TruncateAt.END
-        setTextColor(Color.RED)
+        setTextColor(ColorProvider.gray)
         setTypeface(null, Typeface.ITALIC) // for Bold and Italic
     }
 

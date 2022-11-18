@@ -10,5 +10,9 @@ object ColorProvider {
 
     const val black="#000000"
 
+    const val error="#FF0000"
+
     const  val tint="#FE9920"
+
+    const  val gray="#7c7d7c"
 }

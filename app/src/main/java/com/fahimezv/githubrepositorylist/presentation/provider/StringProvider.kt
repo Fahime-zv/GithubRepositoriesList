@@ -11,4 +11,12 @@ object StringProvider {
 
     val somethingHappened="Something Happened!!!"
 
+    val jackWhartonUserName="JakeWharton"
+
+    val infiumUserName="infinum"
+
+    val repositoryName="Name"
+
+    val repositoryUrl="Url"
+
 }
