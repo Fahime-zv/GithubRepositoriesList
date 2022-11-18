@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.fahimezv.githubrepositorylist.core.entity.NetworkReceivedModel
 
-abstract class BasePagingAdapter<V : View, M : Any>(comparator: DiffUtil.ItemCallback<M>) :
+abstract class BasePagingAdapter<V : View, M : NetworkReceivedModel>(comparator: DiffUtil.ItemCallback<M>) :
     PagingDataAdapter<M, BasePagingAdapter<V, M>.BaseViewHolder<V>>(comparator) {
 
     open fun onAdapterItemClick(adapterPosition: Int) {
