@@ -19,4 +19,8 @@ object StringProvider {
 
     val repositoryUrl="Url"
 
+    val welcom="Welcome to here"
+
+    val youCanseeRepositories="You can see  here repositories of Jackwhrton and Infinum and you can select every repository and after thate you can seee detail about it repository and owner and Other inforomation."
+
 }

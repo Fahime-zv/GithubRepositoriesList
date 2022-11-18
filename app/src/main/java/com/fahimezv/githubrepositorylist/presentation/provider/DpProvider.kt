@@ -18,4 +18,6 @@ object DpProvider {
 
     val padding5X= padding*5
 
+    val imageHeight= 250.dpToPx
+
 }
