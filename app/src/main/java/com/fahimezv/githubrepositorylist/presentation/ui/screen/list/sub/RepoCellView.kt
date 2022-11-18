@@ -16,6 +16,8 @@ import com.fahimezv.githubrepositorylist.presentation.provider.ColorProvider
 import com.fahimezv.githubrepositorylist.presentation.provider.DpProvider
 import com.fahimezv.githubrepositorylist.presentation.provider.StringProvider
 import com.fahimezv.githubrepositorylist.presentation.util.LayoutSet
+import com.fahimezv.githubrepositorylist.presentation.util.margin
+import top.defaults.drawabletoolbox.DrawableBuilder
 
 class RepoCellView(
     context: Context,
@@ -30,14 +32,22 @@ class RepoCellView(
 
     init {
         //Setting
+        background = DrawableBuilder()
+            .rectangle()
+            .cornerRadius(DpProvider.radios)
+            .solidColor(Color.parseColor(ColorProvider.white))
+            .strokeColorPressed(Color.parseColor(ColorProvider.pinkLight))
+            .strokeWidth(1.dpToPx)
+            .strokeColor(Color.parseColor(ColorProvider.white))
+            .build()
         orientation = VERTICAL
-        setPadding(DpProvider.padding,DpProvider.padding,DpProvider.padding,DpProvider.padding)
+        setPadding(DpProvider.padding2X, DpProvider.padding, DpProvider.padding2X, DpProvider.padding)
         // Setup NameTextView
         nameTextView = createNameTextView()
-        addView(nameTextView, LayoutSet.Linear.defaultParams())
+        addView(nameTextView, LayoutSet.Linear.defaultParams().margin(0,DpProvider.padding,0,0))
         // Setup URlTextView
         urlTextView = createUrlTextView()
-        addView(urlTextView, LayoutSet.Linear.defaultParams())
+        addView(urlTextView, LayoutSet.Linear.defaultParams().margin(0,DpProvider.padding,0,DpProvider.padding))
 
     }
 

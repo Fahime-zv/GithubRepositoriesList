@@ -8,10 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerViewDecorations {
 
-    class NoLastItemDividerDecorator(
-        val context: Context,
-        orientation: Int
-    ) : DividerItemDecoration(context, orientation) {
+    class VerticalSpaceItemDecoration(
+        private val margin: Int = 0
+    ) : RecyclerView.ItemDecoration() {
 
         override fun getItemOffsets(
             outRect: Rect,
@@ -19,13 +18,12 @@ class RecyclerViewDecorations {
             parent: RecyclerView,
             state: RecyclerView.State
         ) {
-            super.getItemOffsets(outRect, view, parent, state)
-            val position = parent.getChildAdapterPosition(view)
-            val last = parent.adapter?.itemCount ?: 0
+            val itemPosition = parent.getChildAdapterPosition(view)
+            if (itemPosition == RecyclerView.NO_POSITION)
+                return
 
-            if (position == last - 1) {
-                outRect.set(0, 0, 0, 0)
-            }
+            val isFirstItem = itemPosition == 0
+            outRect.top = if (isFirstItem) 0 else margin
         }
 
     }

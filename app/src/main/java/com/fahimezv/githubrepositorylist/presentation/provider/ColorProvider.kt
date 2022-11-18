@@ -1,5 +1,7 @@
 package com.fahimezv.githubrepositorylist.presentation.provider
 
+import android.graphics.Color
+
 object ColorProvider {
 
     /**
@@ -17,5 +19,8 @@ object ColorProvider {
     const  val pinkLight="#FF99CC"
 
     const  val gray="#7c7d7c"
+
+    const  val grayLight="#F5F5F5"
+
 
 }
