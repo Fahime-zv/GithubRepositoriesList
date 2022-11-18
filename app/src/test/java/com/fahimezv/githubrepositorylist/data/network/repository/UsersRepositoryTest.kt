@@ -17,14 +17,13 @@ import org.mockito.kotlin.whenever
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
-
 class UsersRepositoryTest : BaseCoroutineTest() {
 
     private lateinit var repository: UsersRepository
     private val service: UsersService = mock()
 
-    private val repoDao = RepoDAO(id=1,name = "name", url = "any url", owner = RepoDAO.OwnerDAO("login", "any url"))
-    private val repo = Repo(id=1,name = "name", url = "any url", owner = Repo.Owner("login", "any url"))
+    private val repoDao = RepoDAO(id = 1, name = "name", url = "any url", owner = RepoDAO.OwnerDAO("login", "any url"))
+    private val repo = Repo(id = 1, name = "name", url = "any url", owner = Repo.Owner("login", "any url"))
 
     @Before
     fun setUp() {
@@ -32,15 +31,15 @@ class UsersRepositoryTest : BaseCoroutineTest() {
     }
 
     @Test
-    fun `when put username repos() should return Repo Model and page is null `() {
+    fun `when put username  in repos() should return list of Repo Model `() {
 
         testCoroutineRule.runBlockingTest {
             whenever(
-                service.repos( anyString(), anyString(), anyString(), anyInt(), anyInt())
+                service.repos(anyString(), anyString(), anyString(), anyInt(), anyInt())
             ).thenReturn(listOf(repoDao))
 
-            val actual = repository.repos("Not important",1,20)
-            assertEquals(Result.Data(listOf( repo)), actual)
+            val actual = repository.repos("Not important", 1, 20)
+            assertEquals(Result.Data(listOf(repo)), actual)
         }
     }
 
