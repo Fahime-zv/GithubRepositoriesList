@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.fahimezv.githubrepositorylist.core.entity.Event
 import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.data.network.model.Result
-import com.fahimezv.githubrepositorylist.data.network.model.dao.EventDAO
 import com.fahimezv.githubrepositorylist.data.network.repository.RepoRepository
 import com.fahimezv.githubrepositorylist.presentation.common.architecture.BaseViewModelState
 import com.fahimezv.githubrepositorylist.presentation.common.architecture.UiState
@@ -31,10 +30,18 @@ class DetailViewModel(
             with(repoRepository.events(userName, repo.name)) {
                 when (this) {
                     is Result.Data -> {
-                         if(this.model.isNotEmpty())
-                        eventLiveData.postValue(  this.model.first())
+
+                        if (this.model.isNotEmpty()) {
+                            uiState(UiState.Loading)
+                            eventLiveData.postValue(this.model.first())
+                        } else {
+                            uiState(UiState.Empty)
+                        }
+
                     }
                     is Result.NetworkError -> {
+                        //Nothing
+                        uiState(UiState.NetworkError)
                     }
 
                 }

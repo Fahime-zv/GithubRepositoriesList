@@ -3,6 +3,7 @@ package com.fahimezv.githubrepositorylist.presentation.ui.view
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
@@ -12,6 +13,7 @@ import com.fahimezv.githubrepositorylist.presentation.provider.ColorProvider
 import com.fahimezv.githubrepositorylist.presentation.common.animation.BounceClickEffectAnimator
 import com.fahimezv.githubrepositorylist.presentation.extentions.setBackgroundColor
 import com.fahimezv.githubrepositorylist.presentation.provider.DpProvider
+import top.defaults.drawabletoolbox.DrawableBuilder
 
 @SuppressLint("ViewConstructor")
 abstract class CustomButton(context: Context) : AppCompatTextView(context) {
@@ -20,6 +22,7 @@ abstract class CustomButton(context: Context) : AppCompatTextView(context) {
     private val bounceClickEffectAnimator by lazy { BounceClickEffectAnimator(this) }
 
     init {
+
         gravity = Gravity.CENTER
         textAlignment = View.TEXT_ALIGNMENT_CENTER
         minimumHeight = DpProvider.buttonHeight
@@ -42,7 +45,12 @@ abstract class CustomButton(context: Context) : AppCompatTextView(context) {
     open class Solid(context: Context) : CustomButton(context) {
         init {
             setTextColor(ColorProvider.white)
-            setBackgroundColor(ColorProvider.tint)
+            background= DrawableBuilder()
+                .rectangle()
+                .rounded()
+                .solidColor(Color.parseColor(ColorProvider.tint))
+                .solidColorPressed(Color.parseColor(ColorProvider.pinkLight))
+                .build()
         }
 
     }
