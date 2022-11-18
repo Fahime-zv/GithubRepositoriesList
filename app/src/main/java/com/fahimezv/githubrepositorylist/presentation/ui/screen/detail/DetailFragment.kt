@@ -28,8 +28,10 @@ class DetailFragment : BaseFragmentVMState<DetailView, DetailViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel.getEventLiveData().observe(viewLifecycleOwner){
             println(it.toString())
         }
+
     }
 }

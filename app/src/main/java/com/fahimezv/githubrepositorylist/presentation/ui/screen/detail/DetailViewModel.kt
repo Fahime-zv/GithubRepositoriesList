@@ -3,6 +3,7 @@ package com.fahimezv.githubrepositorylist.presentation.ui.screen.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.fahimezv.githubrepositorylist.core.entity.Event
 import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.data.network.model.Result
 import com.fahimezv.githubrepositorylist.data.network.model.dao.EventDAO
@@ -17,8 +18,8 @@ class DetailViewModel(
     private val repoRepository: RepoRepository,
 ) : BaseViewModelState() {
 
-    private val eventLiveData = MutableLiveData<EventDAO>()
-    fun getEventLiveData(): LiveData<EventDAO> = eventLiveData
+    private val eventLiveData = MutableLiveData<Event>()
+    fun getEventLiveData(): LiveData<Event> = eventLiveData
 
     init {
         requestLastEvent()
