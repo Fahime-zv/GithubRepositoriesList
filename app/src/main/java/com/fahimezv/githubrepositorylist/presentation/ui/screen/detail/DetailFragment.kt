@@ -22,6 +22,7 @@ class DetailFragment : BaseFragmentVMState<DetailView, DetailViewModel>() {
     override fun onCreateRootView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): DetailView {
         return DetailView(
             context = requireContext(),
+            userName =args.userName,
             repo = args.repoModel
         )
     }

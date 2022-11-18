@@ -1,5 +1,6 @@
 package com.fahimezv.githubrepositorylist.presentation.ui.screen.list
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.presentation.common.architecture.BaseFragmentVMState
 import com.fahimezv.githubrepositorylist.presentation.common.paging.PagingExceptions
 import com.fahimezv.githubrepositorylist.presentation.extentions.TAG
+import com.fahimezv.githubrepositorylist.presentation.provider.ColorProvider
 import com.fahimezv.githubrepositorylist.presentation.provider.StringProvider
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -36,6 +38,8 @@ class ListFragment : BaseFragmentVMState<ListView, ListViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.setBackgroundColor(Color.parseColor(ColorProvider.grayLight))
 
         //Observer
         viewModel.repoLiveData.observe(viewLifecycleOwner) { pagingData ->

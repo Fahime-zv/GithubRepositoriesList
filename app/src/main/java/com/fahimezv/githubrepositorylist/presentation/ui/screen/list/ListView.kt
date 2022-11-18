@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.view.isVisible
+import androidx.core.view.setPadding
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -108,12 +109,9 @@ class ListView(
             onRepositoryClickListener = onRepositoryClickListener
         )
         adapter = repositoryAdapter
-        addItemDecoration(
-            RecyclerViewDecorations.NoLastItemDividerDecorator(
-                context,
-                LinearLayout.VERTICAL
-            )
-        )
+        addItemDecoration(RecyclerViewDecorations.VerticalSpaceItemDecoration(DpProvider.padding))
+        setPadding(DpProvider.padding2X,DpProvider.padding2X,DpProvider.padding2X,DpProvider.padding2X)
+
     }
 
     //****************************************
