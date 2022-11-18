@@ -5,6 +5,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
 import androidx.core.view.updateMarginsRelative
+import androidx.recyclerview.widget.RecyclerView
 import com.fahimezv.githubrepositorylist.presentation.extentions.dpToPx
 
 class LayoutSet {
@@ -256,57 +257,53 @@ class LayoutSet {
     }
 
     /**
-     * Helper class of  [FrameLayout.LayoutParams]  for ease of adding views inside [CardView]
+     * Helper class of  [RecyclerView.LayoutParams]  for ease of adding views inside [RecyclerView]
      *
      * Example: same as [Linear] example
-     * @param width width of the view inside of [CardView].
+     * @param width width of the view inside of [RecyclerView].
      * it can be specific number or [MATCH] or [WRAP]
-     * @param height height of the view inside of [CardView].
+     * @param height height of the view inside of [RecyclerView].
      * it can be specific number or [MATCH] or [WRAP]
-     * @constructor creates [FrameLayout.LayoutParams] with given values
+     * @constructor creates [RecyclerView.LayoutParams] with given values
      */
-    class Card(width: Int, height: Int) : FrameLayout.LayoutParams(width, height) {
-
+    class Recycler(width: Int, height: Int) : RecyclerView.LayoutParams(width, height) {
         companion object {
             /**
              * creates layoutParam with values
              * * width: [MATCH]
              * * height: [WRAP]
-             * @return defined [FrameLayout.LayoutParams]
+             * @return defined [RecyclerView.LayoutParams]
              */
-            fun defaultParams() = Card(MATCH, WRAP)
-
+            fun defaultParams() = Recycler(MATCH, WRAP)
             /**
              * creates layoutParam with values
              * * width: [WRAP]
              * * height: [WRAP]
-             * @return defined [FrameLayout.LayoutParams]
+             * @return defined [RecyclerView.LayoutParams]
              */
-            fun wrapContent() = Card(WRAP, WRAP)
-
+            fun wrapContent() = Recycler(WRAP, WRAP)
             /**
              * creates layoutParam with values
              * * width: [MATCH]
              * * height: [MATCH]
-             * @return defined [FrameLayout.LayoutParams]
+             * @return defined [RecyclerView.LayoutParams]
              */
-            fun fullScreen() = Card(MATCH, MATCH)
-
+            fun fullSize() = Recycler(MATCH, MATCH)
             /**
              * creates layoutParam with values
              * * width: [w]
              * * height: [h]
-             * @return defined [FrameLayout.LayoutParams]
+             * @return defined [RecyclerView.LayoutParams]
              */
-            fun get(w: Int, h: Int) = Card(w, h)
-
+            fun get(w: Int, h: Int) = Recycler(w, h)
             /**
              * creates layoutParam with values
              * * width: [w]
              * * height: [w]
-             * @return defined [FrameLayout.LayoutParams]
+             * @return defined [RecyclerView.LayoutParams]
              */
-            fun get(w: Int) = Card(w, w)
+            fun get(w: Int) = Recycler(w, w)
+
         }
     }
 
