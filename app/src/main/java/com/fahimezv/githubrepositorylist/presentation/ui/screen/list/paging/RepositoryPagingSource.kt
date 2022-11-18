@@ -16,17 +16,23 @@ class RepositoryPagingSource(
 ) : PagingSource<Int, Repo>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Repo> {
+        val pageIndex = params.key ?: STARTING_PAGE_INDEX
+
         with(usersRepository.repos(
             userName = userName,
             pageIndex = params.key ?: STARTING_PAGE_INDEX,
             pageSize = NETWORK_PAGE_SIZE)
         ) {
             return when (this) {
+
                 is Result.Data -> {
+                    val nextKey =  if (this.model.isNotEmpty())
+                        pageIndex + (params.loadSize / NETWORK_PAGE_SIZE) else null
+
                     LoadResult.Page(
                         data = this.model,
                         prevKey = null,
-                        nextKey = if (this.model.size == NETWORK_PAGE_SIZE) params.key?.plus(1) else null
+                        nextKey = nextKey
                     )
                 }
                 is Result.NetworkError -> {
