@@ -6,6 +6,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        // for UI library
         jcenter()
 
 
@@ -25,8 +26,8 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        // for UI library
         jcenter()
-
 
     }
 
