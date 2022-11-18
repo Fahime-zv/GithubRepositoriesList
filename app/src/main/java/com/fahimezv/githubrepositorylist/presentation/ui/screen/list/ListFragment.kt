@@ -29,7 +29,7 @@ class ListFragment : BaseFragmentVMState<ListView, ListViewModel>() {
         return ListView(
             context = requireContext(),
             onRepositoryClickListener = { repo: Repo ->
-                navigate(ListFragmentDirections.actionListFragmentToDetailFragment(repo,args.userName))
+                navigate(ListFragmentDirections.actionListFragmentToDetailFragment(repo, args.userName))
             }
         )
     }

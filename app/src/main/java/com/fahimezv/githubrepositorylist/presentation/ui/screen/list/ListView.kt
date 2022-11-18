@@ -1,6 +1,8 @@
 package com.fahimezv.githubrepositorylist.presentation.ui.screen.list
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.view.Gravity
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ProgressBar
@@ -13,11 +15,15 @@ import com.fahimezv.githubrepositorylist.core.entity.Repo
 import com.fahimezv.githubrepositorylist.presentation.OnRepositoryClickListener
 import com.fahimezv.githubrepositorylist.presentation.common.architecture.ViewState
 import com.fahimezv.githubrepositorylist.presentation.extentions.dpToPx
+import com.fahimezv.githubrepositorylist.presentation.extentions.setTextColor
+import com.fahimezv.githubrepositorylist.presentation.provider.ColorProvider
+import com.fahimezv.githubrepositorylist.presentation.provider.DpProvider
 import com.fahimezv.githubrepositorylist.presentation.provider.StringProvider
 import com.fahimezv.githubrepositorylist.presentation.ui.screen.list.sub.RecyclerViewDecorations
 import com.fahimezv.githubrepositorylist.presentation.ui.screen.list.sub.RepositoryAdapter
 import com.fahimezv.githubrepositorylist.presentation.util.LayoutSet
 
+@SuppressLint("ViewConstructor")
 class ListView(
     context: Context,
     private val onRepositoryClickListener: OnRepositoryClickListener,
@@ -31,18 +37,16 @@ class ListView(
     // Adapter
     lateinit var repositoryAdapter: RepositoryAdapter
 
-
     init {
         //Setup LoadingView
         loading = createLoadingView()
-        addView(loading, LayoutSet.Frame.fullScreen())
+        addView(loading, LayoutSet.Frame.get(DpProvider.buttonHeight).gravity(Gravity.CENTER))
         //Setup EmptyView
         emptyView = createEmptyView()
-        addView(emptyView, LayoutSet.Frame.fullScreen())
+        addView(emptyView, LayoutSet.Frame.fullScreen().gravity(Gravity.CENTER))
         //Setup RecyclerView
         recyclerView = createRecyclerView()
         addView(recyclerView, LayoutSet.Frame.fullScreen())
-
     }
 
     //****************************************
@@ -53,7 +57,6 @@ class ListView(
         loading.isVisible = true
         emptyView.isVisible = false
         recyclerView.isVisible = false
-
     }
 
     override fun onData() {
@@ -71,6 +74,12 @@ class ListView(
     override fun onNetworkError() {
         recyclerView.isVisible = false
         loading.isVisible = false
+        emptyView.isVisible = true
+        emptyView.apply {
+            text = StringProvider.somethingHappened
+            setTextColor(ColorProvider.error)
+        }
+
     }
 
     override fun onApiError(msg: String) {
@@ -82,12 +91,12 @@ class ListView(
     //              View Creations           *
     //****************************************
 
-    private fun createLoadingView() = ProgressBar(context).apply {
-    }
+    private fun createLoadingView() = ProgressBar(context)
 
     private fun createEmptyView() = TextView(context).apply {
         text = StringProvider.emptyMessage
-        textSize = 12.dpToPx.toFloat()
+        textSize = 10.dpToPx.toFloat()
+        gravity=Gravity.CENTER
     }
 
     private fun createRecyclerView() = RecyclerView(context).apply {
@@ -110,10 +119,9 @@ class ListView(
     //****************************************
     //              Public Function          *
     //****************************************
+
     suspend fun bind(pagingData: PagingData<Repo>) {
         repositoryAdapter.submitData(pagingData)
-
     }
-
 
 }
