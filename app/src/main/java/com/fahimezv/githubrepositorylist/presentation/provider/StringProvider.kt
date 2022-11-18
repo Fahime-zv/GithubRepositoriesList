@@ -21,9 +21,9 @@ object StringProvider {
 
     val repositoryUrl="Url"
 
-    val welcom="Welcome to here"
+    val welcom="You're welcome here"
 
-    val youCanseeRepositories="You can see  here repositories of Jackwhrton and Infinum and you can select every repository and after thate you can seee detail about it repository and owner and Other inforomation."
+    val youCanseeRepositories="The repository list includes Jackwhrton and Infinium repositories that you can select and see details about the repository and owner as well as other information."
 
     val ownerLogin="Owner Login:"
 
