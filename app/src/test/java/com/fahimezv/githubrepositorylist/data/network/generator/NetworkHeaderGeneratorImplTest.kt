@@ -9,7 +9,6 @@ class NetworkHeaderGeneratorTest
     private lateinit var networkHeadersGenerator: NetworkHeaderGeneratorImpl
     @Before
     fun setUp() {
-
         networkHeadersGenerator = NetworkHeaderGeneratorImpl()
     }
 
