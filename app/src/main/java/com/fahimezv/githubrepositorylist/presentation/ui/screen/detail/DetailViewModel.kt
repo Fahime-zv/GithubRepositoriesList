@@ -30,9 +30,8 @@ class DetailViewModel(
             with(repoRepository.events(userName, repo.name)) {
                 when (this) {
                     is Result.Data -> {
-
                         if (this.model.isNotEmpty()) {
-                            uiState(UiState.Loading)
+                            uiState(UiState.Data)
                             eventLiveData.postValue(this.model.first())
                         } else {
                             uiState(UiState.Empty)
@@ -42,11 +41,11 @@ class DetailViewModel(
                     is Result.NetworkError -> {
                         //Nothing
                         uiState(UiState.NetworkError)
+
                     }
 
                 }
             }
-            uiState(UiState.Data)
         }
     }
 }

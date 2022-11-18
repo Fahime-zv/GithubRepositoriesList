@@ -20,7 +20,7 @@ object DpProvider {
 
     val imageHeight= 250.dpToPx
 
-    val headerHeight= 200.dpToPx
+    val headerHeight= 150.dpToPx
 
     val radios= 16.dpToPx
 

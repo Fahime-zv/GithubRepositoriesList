@@ -2,7 +2,7 @@ package com.fahimezv.githubrepositorylist.core.entity
 
 
 data class Event(
-    val id: Int,
+    val id: Long,
     val type: String,
     val actor: Actor,
 ) : NetworkReceivedModel {

@@ -9,6 +9,8 @@ object StringProvider {
 
     val emptyMessage="List is empty!!!"
 
+    val eventIsntAvalable="Last event isn't available!!!"
+
     val somethingHappened="Something Happened!!!"
 
     val jackWhartonUserName="JakeWharton"
@@ -22,5 +24,26 @@ object StringProvider {
     val welcom="Welcome to here"
 
     val youCanseeRepositories="You can see  here repositories of Jackwhrton and Infinum and you can select every repository and after thate you can seee detail about it repository and owner and Other inforomation."
+
+    val ownerLogin="Owner Login:"
+
+    val ownerUrl="Owner Url:"
+
+    val repoName="Repo Name:"
+
+    val repoUrl="Repo Url:"
+
+    val typr="Type"
+
+    val displayLogin="Display Login"
+
+    val actorUrl="Actor Url"
+
+    val owner="Owner"
+
+    val lastEvent="LastEvent"
+
+    val repo="Repo"
+
 
 }

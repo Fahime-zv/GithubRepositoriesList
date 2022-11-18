@@ -1,11 +1,13 @@
 package com.fahimezv.githubrepositorylist.presentation.ui.screen.detail
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.fahimezv.githubrepositorylist.presentation.common.architecture.BaseFragmentVMState
+import com.fahimezv.githubrepositorylist.presentation.provider.ColorProvider
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -30,8 +32,10 @@ class DetailFragment : BaseFragmentVMState<DetailView, DetailViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getEventLiveData().observe(viewLifecycleOwner){
-            println(it.toString())
+        view.setBackgroundColor(Color.parseColor(ColorProvider.grayLight))
+        //observer
+        viewModel.getEventLiveData().observe(viewLifecycleOwner){lastEvent->
+            rootView?.bind(lastEvent)
         }
 
     }

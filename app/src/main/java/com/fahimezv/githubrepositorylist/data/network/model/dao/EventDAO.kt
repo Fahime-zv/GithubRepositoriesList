@@ -4,7 +4,7 @@ import com.fahimezv.githubrepositorylist.core.entity.Event
 import com.google.gson.annotations.SerializedName
 
 data class EventDAO(
-    @SerializedName("id") val id: Int,
+    @SerializedName("id") val id: Long,
     @SerializedName("type") val type: String,
     @SerializedName("actor") val actor: ActorDAO,
 ) : MappableDAO<Event> {
