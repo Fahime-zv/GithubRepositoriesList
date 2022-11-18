@@ -10,9 +10,7 @@ class HomeFragment : BaseFragment<HomeView>() {
     override fun onCreateRootView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): HomeView {
         return HomeView(
             context = requireContext(),
-            jackClickListener = { userName ->
-                navigate(HomeFragmentDirections.actionHomeFragmentToListFragment(userName))
-            }, infinumClickListener = { userName ->
+            onUserClickListener = { userName ->
                 navigate(HomeFragmentDirections.actionHomeFragmentToListFragment(userName))
             }
         )

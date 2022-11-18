@@ -1,6 +1,8 @@
 package com.fahimezv.githubrepositorylist.presentation.ui.screen.home
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.view.Gravity
 import android.widget.LinearLayout
 import com.fahimezv.githubrepositorylist.presentation.OnUserNameClickListener
 import com.fahimezv.githubrepositorylist.presentation.provider.DpProvider
@@ -9,10 +11,10 @@ import com.fahimezv.githubrepositorylist.presentation.ui.view.CustomButton
 import com.fahimezv.githubrepositorylist.presentation.util.LayoutSet
 import com.fahimezv.githubrepositorylist.presentation.util.margin
 
+@SuppressLint("ViewConstructor")
 class HomeView(
     context: Context,
-    private val jackClickListener: OnUserNameClickListener,
-    private val infinumClickListener: OnUserNameClickListener,
+    private val onUserClickListener: OnUserNameClickListener,
 ) : LinearLayout(context) {
 
     // UI
@@ -22,6 +24,7 @@ class HomeView(
     init {
         //Setting
         orientation = VERTICAL
+        gravity=Gravity.CENTER
         //Setup JackWharton Button
         jackWhartonRepositoryButton = createJackWhartonButton()
         addView(jackWhartonRepositoryButton, LayoutSet.Linear.defaultParams().margin(DpProvider.padding))
@@ -37,7 +40,7 @@ class HomeView(
     private fun createJackWhartonButton() = CustomButton.Solid(context).apply {
         text = StringProvider.jackWharton
         setOnClickListener {
-            jackClickListener.invoke("JakeWharton")
+            onUserClickListener.invoke(StringProvider.jackWhartonUserName)
         }
 
     }
@@ -45,7 +48,7 @@ class HomeView(
     private fun createInfinumButton() = CustomButton.Solid(context).apply {
         text = StringProvider.infinum
         setOnClickListener {
-            jackClickListener.invoke("fahime-zv")
+            onUserClickListener.invoke(StringProvider.infiumUserName)
         }
 
     }
