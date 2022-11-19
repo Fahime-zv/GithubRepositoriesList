@@ -2,10 +2,7 @@
 # About
 
 Github repository list is an application where you can get the list of repositories of 2 users.
-This app application is free and open source.
-You don’t need an account first, which you are going to use in this app.
-This app  isn’t available on the Google Play Store .
-
+This is an open source application, for using it you don't need user account.This is not published on Google Play .this is jus a sample application.
 # Features
 - Get all repository from GitHub API
 - Get detail for each repository 
