@@ -12,10 +12,11 @@ This app  isn’t available on the Google Play Store .
 - Get last event of repository
 
 # Screenshots
+<p align="left">
 
-<image src=![Screenshot_1668868402](https://user-images.githubusercontent.com/25881716/202856340-68eea317-4de1-4691-931d-0a2041bfd450.png)  height="200" width="100" >
-<image src=![Screenshot_1668868406](https://user-images.githubusercontent.com/25881716/202856434-e396c6b3-901e-42e5-b893-3dbbfd4ae355.png) height="200" width="100" >
-<image src=![Screenshot_1668868413](https://user-images.githubusercontent.com/25881716/202856437-34eddb9d-4e73-44c3-a348-9717727a1dcb.png) height="200" width="100" >
-
+<image  src="https://user-images.githubusercontent.com/25881716/202856340-68eea317-4de1-4691-931d-0a2041bfd450.png"  height="400" width="200" >
+<image src="https://user-images.githubusercontent.com/25881716/202856434-e396c6b3-901e-42e5-b893-3dbbfd4ae355.png" height="400" width="200" >
+<image src="https://user-images.githubusercontent.com/25881716/202856437-34eddb9d-4e73-44c3-a348-9717727a1dcb.png" height="400" width="200" >
+ </p>
  # Permission
-*Full Network Access.
+* Full Network Access.
